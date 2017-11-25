@@ -1,0 +1,1 @@
+product code:1, Quantity: 8product code:2, Quantity: 4product code:3, Quantity: 2
