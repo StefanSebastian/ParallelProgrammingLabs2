@@ -1,5 +1,6 @@
 package shop.server;
 
+import shop.consistenceChecker.ConsistenceChecker;
 import shop.controller.Controller;
 import shop.repository.FileRepo;
 import shop.repository.Repository;
@@ -16,6 +17,9 @@ public class Main {
         repository.setFileRepo(fileRepo);
         Controller controller = new Controller(repository);
         server.setController(controller);
+
+        Thread t = new Thread(new ConsistenceChecker(controller));
+        t.start();
 
         server.start();
     }

@@ -15,7 +15,9 @@ import java.util.concurrent.ExecutionException;
 import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
 import java.util.concurrent.Future;
+import java.util.concurrent.locks.ReadWriteLock;
 import java.util.concurrent.locks.ReentrantLock;
+import java.util.concurrent.locks.ReentrantReadWriteLock;
 
 /**
  * Created by Sebi on 25-Nov-17.
@@ -23,6 +25,9 @@ import java.util.concurrent.locks.ReentrantLock;
 public class Controller implements IController {
     // use a lock for each product
     private Map<Integer, ReentrantLock> locks;
+
+    // shared lock for orders ; exclusive for get report
+    private ReadWriteLock readWriteLock = new ReentrantReadWriteLock();
 
     ExecutorService executorService = Executors.newFixedThreadPool(8);
 
@@ -79,5 +84,14 @@ public class Controller implements IController {
         // uses lock on repo
         repository.incrementSold(receipt);
         return receipt;
+    }
+
+    public ReadWriteLock getReadWriteLock() {
+        return readWriteLock;
+    }
+
+    @Override
+    public void saveState() throws ShopException {
+        repository.saveState();
     }
 }

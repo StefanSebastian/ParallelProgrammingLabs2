@@ -1,1 +1,2 @@
-Name: ghita, Total value: 40.0 , Sale id1
+Name: ghita, Total value: 42.0 , Sale id1
+Name: gheorghe, Total value: 14.0 , Sale id2

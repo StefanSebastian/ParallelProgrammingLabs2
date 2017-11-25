@@ -12,4 +12,5 @@ import java.util.concurrent.Future;
 public interface IController {
     List<Product> getProducts() throws ShopException;
     Future<OrderResult> buyProduct(Integer productCode, Integer quantity, String client) throws ShopException;
+    void saveState() throws ShopException;
 }

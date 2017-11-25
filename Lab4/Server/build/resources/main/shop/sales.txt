@@ -1,1 +1,2 @@
-Code 1, Product code: 3, Quantity2, TimestampSat Nov 25 19:07:43 EET 2017
+Code 1, Product code: 2, Quantity3, TimestampSat Nov 25 19:09:08 EET 2017
+Code 2, Product code: 2, Quantity1, TimestampSat Nov 25 19:09:17 EET 2017

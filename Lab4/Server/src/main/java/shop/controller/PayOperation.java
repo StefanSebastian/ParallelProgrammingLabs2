@@ -26,7 +26,10 @@ public class PayOperation implements Callable<OrderResult> {
 
     @Override
     public OrderResult call() throws Exception {
-        lock.lock();
+        lock.lock(); // acquire product lock ; no concurent operations on the same product
+
+        // can have concurrent orders ; write lock will be acquired by report generator
+        controller.getReadWriteLock().readLock().lock();
         OrderResult orderResult = new OrderResult();
 
         try {
@@ -34,9 +37,10 @@ public class PayOperation implements Callable<OrderResult> {
             orderResult.setReceipt(receipt);
         } catch (ShopException e) {
             orderResult.setMessage(e.getMessage());
+        } finally {
+            controller.getReadWriteLock().readLock().unlock();
+            lock.unlock();
         }
-
-        lock.unlock();
         return orderResult;
     }
 }

@@ -83,7 +83,7 @@ public class Repository implements IRepository{
     }
 
     @Override
-    public synchronized void saveState() throws ShopException {
+    public void saveState() throws ShopException {
         fileRepo.saveReceipts(new ArrayList<>(receipts.values()));
         fileRepo.saveSales(new ArrayList<>(sales.values()));
         fileRepo.saveStocks(new ArrayList<>(stocks.values()));
