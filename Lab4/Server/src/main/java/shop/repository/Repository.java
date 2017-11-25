@@ -1,26 +1,22 @@
 package shop.repository;
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.stereotype.Component;
 import shop.ShopException;
 import shop.domain.*;
 
-import java.io.File;
 import java.util.*;
+import java.util.concurrent.ConcurrentHashMap;
 
 /**
  * Created by Sebi on 25-Nov-17.
  */
-@Component
 public class Repository implements IRepository{
     private Sold sold;
-    private Map<Integer, Product> products;
-    private Map<Integer, Sale> sales;
-    private Map<Integer, Stock> stocks;
-    private List<Receipt> receipts;
+    private HashMap<Integer, Product> products;
+    private HashMap<Integer, Sale> sales;
+    private HashMap<Integer, Stock> stocks;
+    private HashMap<Integer, Receipt> receipts;
     Integer saleCode;
     Integer receiptCode;
 
-    @Autowired
     private FileRepo fileRepo;
 
     public void setFileRepo(FileRepo fileRepo){
@@ -47,7 +43,7 @@ public class Repository implements IRepository{
         products = new HashMap<>();
         sales = new HashMap<>();
         stocks = new HashMap<>();
-        receipts = new ArrayList<>();
+        receipts = new HashMap<>();
         populateProducts();
     }
 
@@ -65,7 +61,7 @@ public class Repository implements IRepository{
     }
 
     @Override
-    public Integer addSale(Integer productId, Integer quantity) throws ShopException {
+    public synchronized Integer addSale(Integer productId, Integer quantity) throws ShopException {
         Product product = products.get(productId);
         saleCode++;
         Sale sale = new Sale(saleCode, product, quantity, new Date());
@@ -74,22 +70,31 @@ public class Repository implements IRepository{
     }
 
     @Override
-    public Receipt addReceipt(Integer saleId, String name) throws ShopException {
+    public synchronized Receipt addReceipt(Integer saleId, String name) throws ShopException {
         Sale sale = sales.get(saleId);
 
         Double amount = sale.getQuantity() * sale.getProduct().getPriceUnit();
 
         receiptCode++;
-        Receipt receipt = new Receipt(name, sale, amount);
-        receipts.add(receipt);
+        Receipt receipt = new Receipt(receiptCode, name, sale, amount);
+        receipts.put(receiptCode, receipt);
 
         return receipt;
     }
 
     @Override
-    public void saveState() throws ShopException {
-        fileRepo.saveReceipts(receipts);
+    public synchronized void saveState() throws ShopException {
+        fileRepo.saveReceipts(new ArrayList<>(receipts.values()));
         fileRepo.saveSales(new ArrayList<>(sales.values()));
         fileRepo.saveStocks(new ArrayList<>(stocks.values()));
+        fileRepo.saveSold(sold);
+
+    }
+
+    @Override
+    public void incrementSold(Receipt receipt) throws ShopException {
+        synchronized (sold) {
+            sold.setAmount(sold.getAmount() + receipt.getTotalAmount());
+        }
     }
 }

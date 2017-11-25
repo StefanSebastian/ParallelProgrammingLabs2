@@ -20,13 +20,9 @@ import java.util.concurrent.locks.ReentrantLock;
 /**
  * Created by Sebi on 25-Nov-17.
  */
-@Component
 public class Controller implements IController {
     // use a lock for each product
     private Map<Integer, ReentrantLock> locks;
-
-    private ReentrantLock salesLock;
-    private ReentrantLock receiptLock;
 
     ExecutorService executorService = Executors.newFixedThreadPool(8);
 
@@ -37,8 +33,6 @@ public class Controller implements IController {
             for (Product product : products){
                 locks.put(product.getProductCode(), new ReentrantLock());
             }
-            salesLock = new ReentrantLock();
-            receiptLock = new ReentrantLock();
         } catch (ShopException e) {
             e.printStackTrace();
         }
@@ -53,7 +47,6 @@ public class Controller implements IController {
         initialize();
     }
 
-    @Autowired
     private IRepository repository;
 
     public void setRepository(IRepository repository){
@@ -71,32 +64,20 @@ public class Controller implements IController {
     }
 
     public Receipt buyProductTask(Integer productCode, Integer quantity, String client) throws ShopException {
+        //gets stock ; will always get correct value because we are locked on product
         Stock stock = repository.getStockForProduct(productCode);
         if (stock.getQuantity() < quantity){
             throw new ShopException("Not enough products on stock");
         }
         stock.setQuantity(stock.getQuantity() - quantity);
-        repository.setStockForProduct(productCode, stock);
+        repository.setStockForProduct(productCode, stock); // only the current thread can modify the stock for this product
 
-        salesLock.lock();
-        Integer saleId;
-        try {
-            saleId = repository.addSale(productCode, quantity);
-        } finally {
-            salesLock.unlock();
-        }
+        // add sale and add receipt ; synchronized methods
+        Integer saleId = repository.addSale(productCode, quantity);
+        Receipt receipt = repository.addReceipt(saleId, client);
 
-
-        receiptLock.lock();
-        Receipt receipt;
-        try {
-            receipt = repository.addReceipt(saleId, client);
-        } finally {
-            receiptLock.unlock();
-        }
-
-        repository.saveState();
-
+        // uses lock on repo
+        repository.incrementSold(receipt);
         return receipt;
     }
 }

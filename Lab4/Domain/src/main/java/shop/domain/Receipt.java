@@ -4,14 +4,24 @@ package shop.domain;
  * Created by Sebi on 25-Nov-17.
  */
 public class Receipt {
+    private Integer receiptCode;
     private String name;
     private Sale sale;
     private Double totalAmount;
 
-    public Receipt(String name, Sale sale, Double totalAmount) {
+    public Receipt(Integer receiptCode, String name, Sale sale, Double totalAmount) {
+        this.receiptCode = receiptCode;
         this.name = name;
         this.sale = sale;
         this.totalAmount = totalAmount;
+    }
+
+    public Integer getReceiptCode() {
+        return receiptCode;
+    }
+
+    public void setReceiptCode(Integer receiptCode) {
+        this.receiptCode = receiptCode;
     }
 
     public String getName() {

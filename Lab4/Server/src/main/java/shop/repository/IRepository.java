@@ -17,4 +17,5 @@ public interface IRepository {
     Integer addSale(Integer productId, Integer quantity) throws ShopException;
     Receipt addReceipt(Integer saleId, String name) throws ShopException;
     void saveState() throws ShopException;
+    void incrementSold(Receipt receipt) throws ShopException;
 }
