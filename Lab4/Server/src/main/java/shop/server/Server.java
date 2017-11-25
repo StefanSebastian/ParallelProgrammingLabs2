@@ -5,13 +5,12 @@ import shop.ShopException;
 import shop.controller.Controller;
 import shop.controller.IController;
 import shop.controller.OrderResult;
+import shop.domain.Product;
 import shop.repository.Repository;
 
-import java.io.BufferedReader;
-import java.io.IOException;
-import java.io.InputStreamReader;
-import java.io.PrintWriter;
+import java.io.*;
 import java.net.Socket;
+import java.util.List;
 import java.util.concurrent.ExecutionException;
 import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
@@ -34,6 +33,56 @@ public class Server extends AbstractServer{
         super(port);
     }
 
+    private void processGetProducts(PrintWriter out) throws ShopException{
+        List<Product> products = controller.getProducts();
+        StringBuilder productResp = new StringBuilder();
+        for (Product product : products){
+            productResp.append(product.getProductCode());
+            productResp.append(",");
+            productResp.append(product.getName());
+            productResp.append(",");
+            productResp.append(product.getPriceUnit());
+            productResp.append(";");
+        }
+        System.out.println("Response: " + productResp.toString());
+        out.write(productResp.toString() + "\n");
+        out.flush();
+    }
+
+    private void processPutOrder(BufferedReader in, PrintWriter out, Socket socketClient) throws ShopException, IOException {
+        String req = in.readLine();
+        String[] arr = req.split("#");
+        String code = arr[0];
+        String quantity = arr[1];
+        String name = arr[2];
+
+        System.out.println("Order: " + code + " " + quantity + " " + name);
+
+        Future<OrderResult> orderResult = controller.buyProduct(Integer.parseInt(code), Integer.parseInt(quantity), name);
+
+        executorService.submit(() -> {
+            try {
+                OrderResult or = orderResult.get();
+                if (or.getReceipt() != null){
+                    out.write(or.getReceipt().getName() + "," + or.getReceipt().getTotalAmount() + "\n");
+                } else if (or.getMessage() != null){
+                    out.write(or.getMessage() + "\n");
+                }
+                out.flush();
+            } catch (InterruptedException | ExecutionException e) {
+                e.printStackTrace();
+            } finally {
+                try {
+                    in.close();
+                    out.close();
+                    socketClient.close();
+                } catch (IOException e) {
+                    e.printStackTrace();
+                }
+            }
+        });
+    }
+
     @Override
     protected void processRequest(Socket socketClient) {
         try {
@@ -46,37 +95,13 @@ public class Server extends AbstractServer{
                     new PrintWriter(socketClient.getOutputStream(), true);
 
             System.out.println("Reading data");
-            String req = in.readLine();
-            String[] arr = req.split("#");
-            String code = arr[0];
-            String quantity = arr[1];
-            String name = arr[2];
+            String type = in.readLine();
 
-            System.out.println("Order: " + code + " " + quantity + " " + name);
-
-            Future<OrderResult> orderResult = controller.buyProduct(Integer.parseInt(code), Integer.parseInt(quantity), name);
-
-            executorService.submit(() -> {
-                try {
-                    OrderResult or = orderResult.get();
-                    if (or.getReceipt() != null){
-                        out.write(or.getReceipt().getName() + "," + or.getReceipt().getTotalAmount() + "\n");
-                    } else if (or.getMessage() != null){
-                        out.write(or.getMessage() + "\n");
-                    }
-                    out.flush();
-                } catch (InterruptedException | ExecutionException e) {
-                    e.printStackTrace();
-                } finally {
-                    try {
-                        in.close();
-                        out.close();
-                       // socketClient.close();
-                    } catch (IOException e) {
-                        e.printStackTrace();
-                    }
-                }
-            });
+            if (type.equals("getProducts")){
+                processGetProducts(out);
+            } else if (type.equals("postOrder")){
+                processPutOrder(in, out, socketClient);
+            }
 
         } catch (IOException | ShopException e) {
             e.printStackTrace();
