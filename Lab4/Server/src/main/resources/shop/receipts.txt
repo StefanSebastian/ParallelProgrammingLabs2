@@ -1,3 +1,2 @@
 Name: gheorghe, Total value: 20.0 , Sale id1
 Name: gheorghe, Total value: 20.0 , Sale id2
-Name: gheorghe, Total value: 20.0 , Sale id3

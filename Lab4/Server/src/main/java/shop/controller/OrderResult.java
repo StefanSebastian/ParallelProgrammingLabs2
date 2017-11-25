@@ -32,4 +32,12 @@ public class OrderResult {
     public void setMessage(String message) {
         this.message = message;
     }
+
+    @Override
+    public String toString() {
+        return "OrderResult{" +
+                "receipt=" + receipt +
+                ", message='" + message + '\'' +
+                '}';
+    }
 }

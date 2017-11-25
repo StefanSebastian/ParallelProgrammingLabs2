@@ -37,4 +37,13 @@ public class Receipt {
     public void setTotalAmount(Double totalAmount) {
         this.totalAmount = totalAmount;
     }
+
+    @Override
+    public String toString() {
+        return "Receipt{" +
+                "name='" + name + '\'' +
+                ", sale=" + sale +
+                ", totalAmount=" + totalAmount +
+                '}';
+    }
 }
