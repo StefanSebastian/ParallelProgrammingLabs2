@@ -1,4 +1,3 @@
 Name: ghita, Total value: 28.0 , Sale id1
-Name: ghita2, Total value: 14.0 , Sale id2
-Name: mircea, Total value: 10.0 , Sale id3
-Name: mirceaaa, Total value: 10.0 , Sale id4
+Name: mir, Total value: 10.0 , Sale id2
+Name: ion, Total value: 10.0 , Sale id3

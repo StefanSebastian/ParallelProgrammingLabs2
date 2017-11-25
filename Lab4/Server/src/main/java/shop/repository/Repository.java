@@ -113,4 +113,9 @@ public class Repository implements IRepository{
         }
         return salesAfter;
     }
+
+    @Override
+    public Map<Integer, Stock> getStocks() throws ShopException {
+        return stocks;
+    }
 }

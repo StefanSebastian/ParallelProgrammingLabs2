@@ -103,4 +103,9 @@ public class Controller implements IController {
     public List<Sale> getSalesAfter(Date date) throws ShopException {
         return repository.getSalesAfter(date);
     }
+
+    @Override
+    public Map<Integer, Stock> getStocks() throws ShopException {
+        return repository.getStocks();
+    }
 }

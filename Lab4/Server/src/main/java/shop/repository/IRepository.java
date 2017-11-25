@@ -8,6 +8,7 @@ import shop.domain.Stock;
 
 import java.util.Date;
 import java.util.List;
+import java.util.Map;
 
 /**
  * Created by Sebi on 25-Nov-17.
@@ -22,4 +23,5 @@ public interface IRepository {
     void incrementSold(Receipt receipt) throws ShopException;
     Double getSold() throws ShopException;
     List<Sale> getSalesAfter(Date date) throws ShopException;
+    Map<Integer, Stock> getStocks() throws ShopException;
 }
