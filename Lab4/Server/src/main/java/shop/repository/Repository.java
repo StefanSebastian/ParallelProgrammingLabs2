@@ -97,4 +97,20 @@ public class Repository implements IRepository{
             sold.setAmount(sold.getAmount() + receipt.getTotalAmount());
         }
     }
+
+    @Override
+    public Double getSold() throws ShopException {
+        return sold.getAmount();
+    }
+
+    @Override
+    public List<Sale> getSalesAfter(Date date) throws ShopException {
+        List<Sale> salesAfter = new ArrayList<>();
+        for (Sale sale : sales.values()){
+            if (sale.getDate().after(date)){
+                salesAfter.add(sale);
+            }
+        }
+        return salesAfter;
+    }
 }

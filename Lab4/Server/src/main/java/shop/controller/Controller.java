@@ -1,17 +1,16 @@
 package shop.controller;
 
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.stereotype.Component;
 import shop.ShopException;
 import shop.domain.Product;
 import shop.domain.Receipt;
+import shop.domain.Sale;
 import shop.domain.Stock;
 import shop.repository.IRepository;
 
+import java.util.Date;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
-import java.util.concurrent.ExecutionException;
 import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
 import java.util.concurrent.Future;
@@ -93,5 +92,15 @@ public class Controller implements IController {
     @Override
     public void saveState() throws ShopException {
         repository.saveState();
+    }
+
+    @Override
+    public Double getSold() throws ShopException {
+        return repository.getSold();
+    }
+
+    @Override
+    public List<Sale> getSalesAfter(Date date) throws ShopException {
+        return repository.getSalesAfter(date);
     }
 }

@@ -3,8 +3,10 @@ package shop.repository;
 import shop.ShopException;
 import shop.domain.Product;
 import shop.domain.Receipt;
+import shop.domain.Sale;
 import shop.domain.Stock;
 
+import java.util.Date;
 import java.util.List;
 
 /**
@@ -18,4 +20,6 @@ public interface IRepository {
     Receipt addReceipt(Integer saleId, String name) throws ShopException;
     void saveState() throws ShopException;
     void incrementSold(Receipt receipt) throws ShopException;
+    Double getSold() throws ShopException;
+    List<Sale> getSalesAfter(Date date) throws ShopException;
 }
