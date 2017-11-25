@@ -33,7 +33,7 @@ public class Server extends AbstractServer{
         super(port);
     }
 
-    private void processGetProducts(PrintWriter out) throws ShopException{
+    private void processGetProducts(BufferedReader in, PrintWriter out, Socket socketClient) throws ShopException{
         List<Product> products = controller.getProducts();
         StringBuilder productResp = new StringBuilder();
         for (Product product : products){
@@ -47,6 +47,15 @@ public class Server extends AbstractServer{
         System.out.println("Response: " + productResp.toString());
         out.write(productResp.toString() + "\n");
         out.flush();
+
+        try {
+            in.close();
+            out.close();
+            socketClient.close();
+
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
     }
 
     private void processPutOrder(BufferedReader in, PrintWriter out, Socket socketClient) throws ShopException, IOException {
@@ -98,7 +107,7 @@ public class Server extends AbstractServer{
             String type = in.readLine();
 
             if (type.equals("getProducts")){
-                processGetProducts(out);
+                processGetProducts(in, out, socketClient);
             } else if (type.equals("postOrder")){
                 processPutOrder(in, out, socketClient);
             }

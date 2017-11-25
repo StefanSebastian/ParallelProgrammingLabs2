@@ -61,11 +61,21 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="checker.txt" pinned="false" current-in-tab="false">
+      <file leaf-file-name="checker.txt" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/Server/src/main/resources/shop/checker.txt">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="0">
               <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="Server.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/Server/src/main/java/shop/server/Server.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="1475">
+              <caret line="109" column="44" lean-forward="false" selection-start-line="109" selection-start-column="44" selection-end-line="109" selection-end-column="44" />
               <folding />
             </state>
           </provider>
@@ -81,8 +91,8 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="sales.txt" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/Server/src/main/resources/shop/sales.txt">
+      <file leaf-file-name="stocks.txt" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/Server/src/main/resources/shop/stocks.txt">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="0">
               <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
@@ -91,7 +101,7 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="sold.txt" pinned="false" current-in-tab="true">
+      <file leaf-file-name="sold.txt" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/Server/src/main/resources/shop/sold.txt">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="0">
@@ -101,8 +111,8 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="stocks.txt" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/Server/src/main/resources/shop/stocks.txt">
+      <file leaf-file-name="sales.txt" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/Server/src/main/resources/shop/sales.txt">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="0">
               <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
@@ -129,16 +139,6 @@
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="289">
               <caret line="25" column="57" lean-forward="false" selection-start-line="25" selection-start-column="57" selection-end-line="25" selection-end-column="57" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="IController.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/Server/src/main/java/shop/controller/IController.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="221">
-              <caret line="21" column="33" lean-forward="false" selection-start-line="21" selection-start-column="33" selection-end-line="21" selection-end-column="33" />
               <folding />
             </state>
           </provider>
@@ -1029,7 +1029,6 @@
         <option value="$PROJECT_DIR$/Server/src/main/java/shop/controller/OrderResult.java" />
         <option value="$PROJECT_DIR$/Server/src/main/java/shop/server/AbstractConcurrentServer.java" />
         <option value="$PROJECT_DIR$/Server/src/main/java/shop/server/ServerConcurrent.java" />
-        <option value="$PROJECT_DIR$/Server/src/main/java/shop/server/Server.java" />
         <option value="$PROJECT_DIR$/Client/src/main/java/shop/Main.java" />
         <option value="$PROJECT_DIR$/Client/src/main/java/shop/Networking.java" />
         <option value="$PROJECT_DIR$/Client/src/main/java/shop/UI.java" />
@@ -1038,16 +1037,17 @@
         <option value="$PROJECT_DIR$/Server/src/main/java/shop/controller/PayOperation.java" />
         <option value="$PROJECT_DIR$/Server/src/main/java/shop/server/Main.java" />
         <option value="$PROJECT_DIR$/Domain/src/main/java/shop/domain/SaleDto.java" />
-        <option value="$PROJECT_DIR$/Server/src/main/resources/shop/stocks.txt" />
         <option value="$PROJECT_DIR$/Server/src/main/java/shop/controller/IController.java" />
         <option value="$PROJECT_DIR$/Server/src/main/java/shop/controller/Controller.java" />
         <option value="$PROJECT_DIR$/Server/src/main/java/shop/repository/IRepository.java" />
         <option value="$PROJECT_DIR$/Server/src/main/java/shop/repository/Repository.java" />
         <option value="$PROJECT_DIR$/Server/src/main/java/shop/consistenceChecker/ConsistenceChecker.java" />
+        <option value="$PROJECT_DIR$/Server/src/main/java/shop/server/Server.java" />
         <option value="$PROJECT_DIR$/Server/src/main/resources/shop/receipts.txt" />
-        <option value="$PROJECT_DIR$/Server/src/main/resources/shop/checker.txt" />
-        <option value="$PROJECT_DIR$/Server/src/main/resources/shop/sales.txt" />
+        <option value="$PROJECT_DIR$/Server/src/main/resources/shop/stocks.txt" />
         <option value="$PROJECT_DIR$/Server/src/main/resources/shop/sold.txt" />
+        <option value="$PROJECT_DIR$/Server/src/main/resources/shop/sales.txt" />
+        <option value="$PROJECT_DIR$/Server/src/main/resources/shop/checker.txt" />
       </list>
     </option>
   </component>
@@ -2033,10 +2033,11 @@
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="23632000" />
+    <option name="totallyTimeSpent" value="23901000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1382" height="744" extended-state="6" />
+    <editor active="true" />
     <layout>
       <window_info id="Palette" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Nl-Palette" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
@@ -2055,7 +2056,7 @@
       <window_info id="Palette&#9;" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Image Layers" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Capture Analysis" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
-      <window_info id="Run" active="true" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.31096563" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.31096563" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="false" weight="0.33" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
       <window_info id="Spring" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="10" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="11" side_tool="false" content_ui="tabs" />
@@ -2387,17 +2388,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/Server/src/main/java/shop/server/Server.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="132">
-          <caret line="58" column="72" lean-forward="false" selection-start-line="58" selection-start-column="72" selection-end-line="58" selection-end-column="72" />
-          <folding>
-            <element signature="e#780#781#0" expanded="false" />
-            <element signature="e#824#825#0" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/Client/src/main/java/shop/UI.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="285">
@@ -2462,14 +2452,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/Server/src/main/resources/shop/stocks.txt">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/Server/src/main/java/shop/controller/IController.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="221">
@@ -2505,17 +2487,15 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/Server/src/main/java/shop/consistenceChecker/ConsistenceChecker.java">
+    <entry file="file://$PROJECT_DIR$/Server/src/main/java/shop/server/Server.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="191">
-          <caret line="110" column="57" lean-forward="false" selection-start-line="110" selection-start-column="57" selection-end-line="110" selection-end-column="57" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
+        <state relative-caret-position="1475">
+          <caret line="109" column="44" lean-forward="false" selection-start-line="109" selection-start-column="44" selection-end-line="109" selection-end-column="44" />
+          <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/Server/src/main/resources/shop/checker.txt">
+    <entry file="file://$PROJECT_DIR$/Server/src/main/resources/shop/receipts.txt">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
           <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
@@ -2523,7 +2503,7 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/Server/src/main/resources/shop/receipts.txt">
+    <entry file="file://$PROJECT_DIR$/Server/src/main/resources/shop/stocks.txt">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
           <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
@@ -2540,6 +2520,24 @@
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/Server/src/main/resources/shop/sold.txt">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Server/src/main/java/shop/consistenceChecker/ConsistenceChecker.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="191">
+          <caret line="110" column="57" lean-forward="false" selection-start-line="110" selection-start-column="57" selection-end-line="110" selection-end-column="57" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Server/src/main/resources/shop/checker.txt">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
           <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
