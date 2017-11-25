@@ -2,6 +2,7 @@ package shop.server;
 
 import shop.consistenceChecker.ConsistenceChecker;
 import shop.controller.Controller;
+import shop.localBuyer.LocalBuyer;
 import shop.repository.FileRepo;
 import shop.repository.Repository;
 
@@ -20,6 +21,9 @@ public class Main {
 
         Thread t = new Thread(new ConsistenceChecker(controller));
         t.start();
+
+        Thread buyer = new Thread(new LocalBuyer(controller));
+        buyer.start();
 
         server.start();
     }

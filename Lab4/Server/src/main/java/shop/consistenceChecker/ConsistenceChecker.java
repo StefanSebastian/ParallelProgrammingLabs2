@@ -85,19 +85,19 @@ public class ConsistenceChecker implements Runnable {
                 boolean error;
 
                 Double current = controller.getSold();
-                System.out.println("Consistence Checker : Current sold " + current);
+                //System.out.println("Consistence Checker : Current sold " + current);
                 Double diff = current - oldSold;
-                System.out.println("Consistence Checker : Difference " + diff);
+                //System.out.println("Consistence Checker : Difference " + diff);
 
                 List<Sale> sales = controller.getSalesAfter(oldTimestamp);
-                System.out.println(sales.size() + " sales were made");
+                //System.out.println(sales.size() + " sales were made");
 
                 Double amount = 0d;
                 for (Sale sale : sales){
                     amount = amount + sale.getQuantity() * sale.getProduct().getPriceUnit();
                 }
 
-                System.out.println("Amount transactioned : " + amount);
+                //System.out.println("Amount transactioned : " + amount);
 
                 error = !diff.equals(amount);
 
