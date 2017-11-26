@@ -1,8 +1,0 @@
-Name: Thread-1, Total value: 30.0 , Sale id1
-Name: Thread-1, Total value: 30.0 , Sale id2
-Name: Thread-1, Total value: 20.0 , Sale id3
-Name: Thread-1, Total value: 10.0 , Sale id4
-Name: Thread-1, Total value: 42.0 , Sale id5
-Name: Thread-1, Total value: 20.0 , Sale id6
-Name: Thread-1, Total value: 14.0 , Sale id7
-Name: Thread-1, Total value: 20.0 , Sale id8

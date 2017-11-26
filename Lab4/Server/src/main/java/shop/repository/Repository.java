@@ -32,7 +32,7 @@ public class Repository implements IRepository{
         products.put(3, p3);
 
         stocks.put(p1.getProductCode(), new Stock(1, p1, 10));
-        stocks.put(p2.getProductCode(), new Stock(2, p2, 4));
+        stocks.put(p2.getProductCode(), new Stock(2, p2, 40));
         stocks.put(p3.getProductCode(), new Stock(3, p3, 2));
     }
 

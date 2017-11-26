@@ -1,8 +1,7 @@
-Code 1, Product code: 1, Quantity3, TimestampSat Nov 25 21:17:14 EET 2017
-Code 2, Product code: 1, Quantity3, TimestampSat Nov 25 21:17:18 EET 2017
-Code 3, Product code: 3, Quantity1, TimestampSat Nov 25 21:17:22 EET 2017
-Code 4, Product code: 1, Quantity1, TimestampSat Nov 25 21:17:26 EET 2017
-Code 5, Product code: 2, Quantity3, TimestampSat Nov 25 21:17:30 EET 2017
-Code 6, Product code: 1, Quantity2, TimestampSat Nov 25 21:17:42 EET 2017
-Code 7, Product code: 2, Quantity1, TimestampSat Nov 25 21:18:02 EET 2017
-Code 8, Product code: 3, Quantity1, TimestampSat Nov 25 21:18:30 EET 2017
+Code 1, Product code: 3, Quantity2, TimestampSun Nov 26 12:58:46 EET 2017
+Code 2, Product code: 2, Quantity4, TimestampSun Nov 26 12:59:02 EET 2017
+Code 3, Product code: 1, Quantity1, TimestampSun Nov 26 12:59:10 EET 2017
+Code 4, Product code: 1, Quantity1, TimestampSun Nov 26 12:59:14 EET 2017
+Code 5, Product code: 1, Quantity2, TimestampSun Nov 26 12:59:18 EET 2017
+Code 6, Product code: 1, Quantity3, TimestampSun Nov 26 12:59:30 EET 2017
+Code 7, Product code: 1, Quantity2, TimestampSun Nov 26 12:59:38 EET 2017
