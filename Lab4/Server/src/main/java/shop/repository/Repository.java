@@ -61,25 +61,29 @@ public class Repository implements IRepository{
     }
 
     @Override
-    public synchronized Integer addSale(Integer productId, Integer quantity) throws ShopException {
-        Product product = products.get(productId);
-        saleCode++;
-        Sale sale = new Sale(saleCode, product, quantity, new Date());
-        sales.put(sale.getSaleCode(), sale);
-        return sale.getSaleCode();
+    public Integer addSale(Integer productId, Integer quantity) throws ShopException {
+        synchronized (sales) {
+            Product product = products.get(productId);
+            saleCode++;
+            Sale sale = new Sale(saleCode, product, quantity, new Date());
+            sales.put(sale.getSaleCode(), sale);
+            return sale.getSaleCode();
+        }
     }
 
     @Override
     public synchronized Receipt addReceipt(Integer saleId, String name) throws ShopException {
-        Sale sale = sales.get(saleId);
+        synchronized (receipts) {
+            Sale sale = sales.get(saleId);
 
-        Double amount = sale.getQuantity() * sale.getProduct().getPriceUnit();
+            Double amount = sale.getQuantity() * sale.getProduct().getPriceUnit();
 
-        receiptCode++;
-        Receipt receipt = new Receipt(receiptCode, name, sale, amount);
-        receipts.put(receiptCode, receipt);
+            receiptCode++;
+            Receipt receipt = new Receipt(receiptCode, name, sale, amount);
+            receipts.put(receiptCode, receipt);
 
-        return receipt;
+            return receipt;
+        }
     }
 
     @Override

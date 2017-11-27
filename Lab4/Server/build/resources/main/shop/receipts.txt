@@ -1,0 +1,9 @@
+Name: Thread-1, Total value: 30.0 , Sale id1
+Name: george, Total value: 10.0 , Sale id2
+Name: viorel, Total value: 28.0 , Sale id3
+Name: Thread-1, Total value: 70.0 , Sale id4
+Name: Thread-1, Total value: 20.0 , Sale id5
+Name: mirce, Total value: 10.0 , Sale id6
+Name: Thread-1, Total value: 56.0 , Sale id7
+Name: Thread-1, Total value: 30.0 , Sale id8
+Name: calin, Total value: 20.0 , Sale id9

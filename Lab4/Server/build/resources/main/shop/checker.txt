@@ -2,34 +2,22 @@ Correct values
 The following sales were added
 Correct values
 The following sales were added
-Trenx2 at Sun Nov 26 12:58:46 EET 2017
+Masinax3 at Mon Nov 27 19:10:42 EET 2017
 Correct values
 The following sales were added
+Masinax1 at Mon Nov 27 19:10:44 EET 2017
 Correct values
 The following sales were added
+Bicicletax2 at Mon Nov 27 19:10:51 EET 2017
 Correct values
 The following sales were added
-Bicicletax4 at Sun Nov 26 12:59:02 EET 2017
+Bicicletax5 at Mon Nov 27 19:10:54 EET 2017
+Trenx1 at Mon Nov 27 19:10:58 EET 2017
 Correct values
 The following sales were added
+Masinax1 at Mon Nov 27 19:11:01 EET 2017
+Bicicletax4 at Mon Nov 27 19:11:02 EET 2017
 Correct values
 The following sales were added
-Masinax1 at Sun Nov 26 12:59:10 EET 2017
-Correct values
-The following sales were added
-Masinax1 at Sun Nov 26 12:59:14 EET 2017
-Correct values
-The following sales were added
-Masinax2 at Sun Nov 26 12:59:18 EET 2017
-Correct values
-The following sales were added
-Correct values
-The following sales were added
-Masinax3 at Sun Nov 26 12:59:30 EET 2017
-Correct values
-The following sales were added
-Correct values
-The following sales were added
-Masinax2 at Sun Nov 26 12:59:38 EET 2017
-Correct values
-The following sales were added
+Masinax3 at Mon Nov 27 19:11:06 EET 2017
+Trenx1 at Mon Nov 27 19:11:07 EET 2017
